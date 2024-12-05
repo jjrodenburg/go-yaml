@@ -494,6 +494,12 @@ var marshalTests = []struct {
 		},
 		"value: !!seq []\n",
 	},
+
+	// unexported embedded type
+	{
+		UnexportedA{A: "exported"},
+		"a: exported\nunexportedb: null\n",
+	},
 }
 
 func (s *S) TestMarshal(c *C) {
